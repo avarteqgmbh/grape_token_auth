@@ -89,7 +89,7 @@ module GrapeTokenAuth
         end
       end
 
-      base.put do
+      base.put '/password' do
         token_authorizer = TokenAuthorizer.new(AuthorizerData.from_env(env))
         resource = token_authorizer.find_resource(base.resource_scope)
         throw(:warden) unless resource
