@@ -234,7 +234,7 @@ module GrapeTokenAuth
 
       # devise method
       def pending_any_confirmation
-        if (!confirmed? || pending_reconfirmation?)
+        if (!confirmed_at || pending_reconfirmation?)
           yield
         else
           self.errors.add(:email, :already_confirmed)

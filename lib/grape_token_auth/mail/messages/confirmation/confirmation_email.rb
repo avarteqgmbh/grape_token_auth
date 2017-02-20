@@ -12,13 +12,13 @@ module GrapeTokenAuth
 
       def confirmation_link
         protocol = url_options[:ssl] ? URI::HTTPS : URI::HTTP
-        options = url_options.merge(query: confirmation_params.to_query)
+        options = url_options.merge(query: confirmation_params.to_query, path: '/' + url_options[:confirmation_path])
         protocol.build(options).to_s
       end
 
       def confirmation_params
         {
-          redirect_url: opts[:redirect_url],
+          redirect_url: url_options[:confirmation_redirect_url],
           config: opts[:client_config],
           confirmation_token: opts[:token]
         }
