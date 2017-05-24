@@ -22,7 +22,7 @@ module GrapeTokenAuth
           resource.save!
 
           redirect_url = resource.build_auth_url(
-            params[:redirect_url], token: token.to_s,
+            'https://app.vilago.com/app/email-confirmation', token: token.to_s,
                                    account_confirmation_success: true,
                                    client_id: token.client_id,
                                    config: params[:config])

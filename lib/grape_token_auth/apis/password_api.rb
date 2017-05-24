@@ -28,7 +28,7 @@ module GrapeTokenAuth
         email = params[:email]
         throw_unauthorized('You must provide an email address.') unless email
 
-        redirect_url = 'http://app.vilago.com/app/auth/password/edit'
+        redirect_url = 'https://app.vilago.com/app/auth/password/edit'
         validate_redirect_url!(redirect_url)
         redirect_url ||= GrapeTokenAuth.configuration.default_password_reset_url
         throw_unauthorized('Missing redirect url.') unless redirect_url
