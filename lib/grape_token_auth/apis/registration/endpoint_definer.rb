@@ -20,7 +20,7 @@ module GrapeTokenAuth
         api.delete do
           user = find_resource(env, api.resource_scope)
           return present bad_request(['resource not found.'], 404) unless user
-          user.delete
+          user.destroy
           status 200
         end
       end
